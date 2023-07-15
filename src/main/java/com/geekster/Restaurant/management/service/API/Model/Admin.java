@@ -19,7 +19,7 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer adminId;
     private String adminName;
-    @Pattern(regexp = "^[A-Za-z0-9._%+-]+@admin\\\\.com$")
+    @Pattern(regexp = "^.+@admin\\.com$")
     private String adminEmail;
     private  String adminPassword;
 

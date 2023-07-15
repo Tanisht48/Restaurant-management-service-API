@@ -6,15 +6,16 @@ import com.geekster.Restaurant.management.service.API.Model.User;
 import com.geekster.Restaurant.management.service.API.Model.dto.SignInInput;
 import com.geekster.Restaurant.management.service.API.Model.dto.SignUpOutput;
 import com.geekster.Restaurant.management.service.API.Service.AuthenticationService;
+import com.geekster.Restaurant.management.service.API.Service.FoodService;
 import com.geekster.Restaurant.management.service.API.Service.OrderService;
 import com.geekster.Restaurant.management.service.API.Service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @Validated
 @RestController
 
@@ -28,6 +29,9 @@ public class UserController {
 
     @Autowired
     AuthenticationService authenticationService;
+
+    @Autowired
+    FoodService foodService;
 
     @PostMapping("user/signup")
     public SignUpOutput signUpUser(@RequestBody User user)
@@ -53,5 +57,12 @@ public class UserController {
         return "Sign in to order Food";
        }
     }
+
+    @GetMapping("foods")
+    public List<Food> getAllFoodItems()
+    {
+        return foodService.getAllFoodItems();
+    }
+
 
 }

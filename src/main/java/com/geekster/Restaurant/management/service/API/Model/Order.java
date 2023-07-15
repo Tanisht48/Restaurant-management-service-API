@@ -1,5 +1,6 @@
 package com.geekster.Restaurant.management.service.API.Model;
 
+import com.geekster.Restaurant.management.service.API.Model.Enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +16,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer orderId;
     private Integer orderQuantity;
-    private  OrderStatus orderStatus;
+    private OrderStatus orderStatus;
 
     @ManyToOne
     @JoinColumn(name ="fk_food_Id")

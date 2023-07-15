@@ -87,7 +87,7 @@ public class UserService {
                 AuthenticationToken auth = new AuthenticationToken(existingUser);
                 authenticationService.saveAuthToken(auth);
 
-                EmailHandler.sendEmail("tanishtgupta42@gmail.com","Authentication",auth.getTokenValue());
+               // EmailHandler.sendEmail("tanishtgupta42@gmail.com","Authentication",auth.getTokenValue());
                 signInStatusMessage = "Signed In Successfully";
                 return signInStatusMessage;
             }

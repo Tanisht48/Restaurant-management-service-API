@@ -1,9 +1,7 @@
 package com.geekster.Restaurant.management.service.API.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.geekster.Restaurant.management.service.API.Model.Enums.FoodType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,5 +16,8 @@ public class Food {
     private Integer foodId;
     private String foodTitle;
     private String foodDesc;
+    @Enumerated(EnumType.STRING)
+    private FoodType foodType;
     private String foodImg;
+    private Double foodPrice;
 }
